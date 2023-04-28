@@ -6,7 +6,7 @@ package errors
 // This is the error that is returned by
 // all functions in chux-models that return
 // an error.
-type ChuxModelsError struct {
+type ChuxSearchError struct {
 	// Message is the message that is
 	// given by chux-models when an error
 	// occurs.
@@ -19,19 +19,19 @@ type ChuxModelsError struct {
 }
 
 // NewChuxModelsError returns a new ChuxModelsError
-func NewChuxModelsError(message string, err error) *ChuxModelsError {
-	return &ChuxModelsError{
+func NewChuxSearchError(message string, err error) *ChuxSearchError {
+	return &ChuxSearchError{
 		Message:  message,
 		InnerErr: err,
 	}
 }
 
-func (e *ChuxModelsError) Error() string {
+func (e *ChuxSearchError) Error() string {
 	return e.Message
 }
 
 // Unwrap returns the underlying error without
 // the message added by chux-parser.
-func (e *ChuxModelsError) Unwrap() error {
+func (e *ChuxSearchError) Unwrap() error {
 	return e.InnerErr
 }

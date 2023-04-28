@@ -8,7 +8,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/chuxorg/chux-models/errors"
+	"github.com/chuxorg/chux-search/errors"
 )
 
 type LogLevel int
@@ -48,41 +48,41 @@ func (l *Logger) SetLogLevel(level LogLevel) {
 
 func (l *Logger) Info(format string, v ...interface{}) {
 	if l == nil {
-		log.Printf("[INFO] "+format+"\n", v...)
+		log.Printf("[INFO] chux-search "+format+"\n", v...)
 		return
 	}
 	if l.level <= LogLevelInfo {
-		l.Output(2, l.iso8601Formatter("[INFO] chux-datastore ", format, v...))
+		l.Output(2, l.iso8601Formatter("[INFO] chux-search ", format, v...))
 	}
 }
 
 func (l *Logger) Debug(format string, v ...interface{}) {
 	if l == nil {
-		log.Printf("[DEBUG] "+format+"\n", v...)
+		log.Printf("[DEBUG] chux-search "+format+"\n", v...)
 		return
 	}
 	if l.level <= LogLevelDebug {
-		l.Output(2, l.iso8601Formatter("[DEBUG] chux-datastore ", format, v...))
+		l.Output(2, l.iso8601Formatter("[DEBUG] chux-search ", format, v...))
 	}
 }
 
 func (l *Logger) Warning(format string, v ...interface{}) {
 	if l == nil {
-		log.Printf("[WARNING] "+format+"\n", v...)
+		log.Printf("[WARNING] chux-search "+format+"\n", v...)
 		return
 	}
 	if l.level <= LogLevelWarning {
-		l.Output(2, l.iso8601Formatter("[WARNING] chux-datastore ", format, v...))
+		l.Output(2, l.iso8601Formatter("[WARNING] chux-search ", format, v...))
 	}
 }
 
 func (l *Logger) Error(format string, v ...interface{}) {
 	if l == nil {
-		log.Printf("[ERROR] "+format+"\n", v...)
+		log.Printf("[ERROR] chux-search "+format+"\n", v...)
 		return
 	}
 	if l.level <= LogLevelError {
-		l.Output(2, l.iso8601Formatter("[ERROR] chux-datastore ", format, v...))
+		l.Output(2, l.iso8601Formatter("[ERROR] chux-search ", format, v...))
 	}
 }
 
